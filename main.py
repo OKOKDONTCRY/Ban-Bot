@@ -16,3 +16,7 @@ async def ban_user(data: BanRequest):
     
     # Return success response
     return {"status": "success", "user_id": data.roblox_user_id}
+
+@app.get("/")
+async def root():
+    return {"message": "Ban API is working."}
