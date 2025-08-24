@@ -22,12 +22,11 @@ class BanRequest(BaseModel):
     roblox_user_id: int
     reason: str
 
-# Ban a user (POST)
+# ✅ POST route for banning
 @app.post("/api/ban")
 async def ban_user(data: BanRequest):
-    banned_users[data.roblox_user_id] = data.reason
-    return {"status": "success", "user_id": data.roblox_user_id, "reason": data.reason}
-
+    print(f"[API] Received ban request for Roblox ID: {data.roblox_user_id}")
+    return {"status": "success", "banned_user": data.roblox_user_id, "reason": data.reason}
 # Check if user is banned (GET)
 @app.get("/api/ban/{user_id}")
 async def check_ban(user_id: int):
