@@ -3,8 +3,5 @@ services:
     name: roblox-ban-api
     env: python
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
-    envVars:
-      - key: PORT
-        value: 10000
+    buildCommand: pip install -r roblox-ban-api/requirements.txt
+    startCommand: uvicorn roblox-ban-api.main:app --host 0.0.0.0 --port 10000
